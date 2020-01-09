@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\ICoreProductsRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Assure.Core.Shared.Interfaces\Assure.Core.Shared.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

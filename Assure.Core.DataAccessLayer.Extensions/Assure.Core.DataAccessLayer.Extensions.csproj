@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper.Contrib" Version="1.60.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Assure.Core.DataAccessLayer.Interfaces\Assure.Core.DataAccessLayer.Interfaces.csproj" />
+    <ProjectReference Include="..\Assure.Core.Shared.Interfaces\Assure.Core.Shared.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

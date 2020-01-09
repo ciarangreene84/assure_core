@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Assure.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{26894ba7-0d81-4da6-9a24-5eafe1336dcb}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Assure.Database</RootNamespace>
+    <AssemblyName>Assure.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="StaticModel\" />
+    <Folder Include="StaticModel\Tables\" />
+    <Folder Include="CoreModel" />
+    <Folder Include="CoreModel\Tables" />
+    <Folder Include="StaticFacade\" />
+    <Folder Include="StaticFacade\Views\" />
+    <Folder Include="CoreFacade" />
+    <Folder Include="CoreFacade\Views" />
+    <Folder Include="Security\" />
+    <Folder Include="SecurityModel" />
+    <Folder Include="SecurityModel\Tables" />
+    <Folder Include="Identity" />
+    <Folder Include="Identity\Tables" />
+    <Folder Include="StaticFacade\Functions\" />
+    <Folder Include="StaticFacade\Stored Procedures\" />
+    <Folder Include="Identity\Functions\" />
+    <Folder Include="CoreFacade\Functions" />
+    <Folder Include="CoreFacade\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlSchemaCompare.scmp" />
+    <None Include="Assure.Core.Database.publish.xml" />
+    <None Include="InsertCountries.sql" />
+    <None Include="InsertTestData.sql" />
+    <None Include="InsertProducts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StaticModel\Tables\AccountTypes.sql" />
+    <Build Include="CoreModel\Tables\Accounts.sql" />
+    <Build Include="StaticFacade\Views\AccountTypes.sql" />
+    <Build Include="CoreFacade\Views\Accounts.sql" />
+    <Build Include="Security\StaticModel.sql" />
+    <Build Include="Security\StaticFacade.sql" />
+    <Build Include="Security\CoreModel.sql" />
+    <Build Include="Security\CoreFacade.sql" />
+    <Build Include="CoreModel\Tables\Policies.sql" />
+    <Build Include="CoreModel\Tables\Customers.sql" />
+    <Build Include="CoreModel\Tables\CustomerPolicies.sql" />
+    <Build Include="StaticModel\Tables\AgentTypes.sql" />
+    <Build Include="CoreModel\Tables\Agents.sql" />
+    <Build Include="CoreModel\Tables\AgentRelationships.sql" />
+    <Build Include="StaticModel\Tables\Products.sql" />
+    <Build Include="Security\SecurityModel.sql" />
+    <Build Include="StaticModel\Tables\Questionaires.sql" />
+    <Build Include="StaticModel\Tables\Currencies.sql" />
+    <Build Include="StaticModel\Tables\Countries.sql" />
+    <Build Include="CoreModel\Tables\Quotes.sql" />
+    <Build Include="CoreModel\Tables\Payments.sql" />
+    <Build Include="CoreModel\Tables\Leads.sql" />
+    <Build Include="CoreModel\Tables\Invoices.sql" />
+    <Build Include="CoreModel\Tables\Documents.sql" />
+    <Build Include="CoreModel\Tables\CommissionAgreements.sql" />
+    <Build Include="CoreModel\Tables\Cards.sql" />
+    <Build Include="Security\Identity.sql" />
+    <Build Include="Identity\Tables\AspNetUsers.sql" />
+    <Build Include="Identity\Tables\RoleClaims.sql" />
+    <Build Include="StaticFacade\Views\Products.sql" />
+    <Build Include="Identity\Tables\UserTokens.sql" />
+    <Build Include="Identity\Tables\Users.sql" />
+    <Build Include="Identity\Tables\UserRoles.sql" />
+    <Build Include="Identity\Tables\UserLogins.sql" />
+    <Build Include="Identity\Tables\UserClaims.sql" />
+    <Build Include="Identity\Tables\Roles.sql" />
+    <Build Include="CoreFacade\Views\Customers.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalAgents.sql" />
+    <Build Include="StaticFacade\Views\AgentTypes.sql" />
+    <Build Include="CoreFacade\Views\Agents.sql" />
+    <Build Include="CoreFacade\Views\Quotes.sql" />
+    <Build Include="CoreModel\Tables\CustomerCards.sql" />
+    <Build Include="Identity\Functions\IsUserInRole.sql" />
+    <Build Include="CoreFacade\Functions\GetAgentCount.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalCustomers.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalAccounts.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalPolicies.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalInvoices.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalCards.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalQuotes.sql" />
+    <Build Include="CoreFacade\Views\Cards.sql" />
+    <Build Include="CoreFacade\Views\Invoices.sql" />
+    <Build Include="CoreFacade\Views\Policies.sql" />
+    <Build Include="CoreFacade\Functions\GetAccountCount.sql" />
+    <Build Include="CoreFacade\Functions\GetCardCount.sql" />
+    <Build Include="CoreFacade\Functions\GetCustomerCount.sql" />
+    <Build Include="CoreFacade\Functions\GetInvoiceCount.sql" />
+    <Build Include="CoreFacade\Functions\GetPolicyCount.sql" />
+    <Build Include="StaticFacade\Functions\GetProductCount.sql" />
+    <Build Include="Security\AssureUser.sql" />
+    <Build Include="Security\AssureSystemAdministrator.sql" />
+    <Build Include="StaticFacade\Views\Countries.sql" />
+    <Build Include="CoreFacade\Functions\GetQuoteCount.sql" />
+    <Build Include="StaticModel\Tables\Questions.sql" />
+    <Build Include="StaticFacade\Views\Questions.sql" />
+    <Build Include="StaticFacade\Functions\GetQuestionCount.sql" />
+    <Build Include="CoreFacade\Stored Procedures\RemoveCustomerPolicy.sql" />
+    <Build Include="CoreFacade\Stored Procedures\AddCustomerPolicy.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalCompanies.sql" />
+    <Build Include="CoreModel\Tables\Companies.sql" />
+    <Build Include="CoreFacade\Views\Companies.sql" />
+    <Build Include="CoreFacade\Functions\GetCompanyCount.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalLeads.sql" />
+    <Build Include="CoreFacade\Views\Leads.sql" />
+    <Build Include="CoreFacade\Functions\GetLeadCount.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalClaims.sql" />
+    <Build Include="CoreModel\Tables\Claims.sql" />
+    <Build Include="CoreFacade\Views\Claims.sql" />
+    <Build Include="CoreFacade\Functions\GetClaimCount.sql" />
+    <Build Include="CoreFacade\Functions\GetPolicyCustomers.sql" />
+    <Build Include="CoreFacade\Functions\GetCustomerPolicies.sql" />
+    <None Include="InsertCurrencies.sql" />
+    <Build Include="StaticFacade\Views\Currencies.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalDocuments.sql" />
+    <Build Include="CoreFacade\Views\Documents.sql" />
+    <Build Include="CoreFacade\Functions\GetDocumentCount.sql" />
+    <Build Include="CoreFacade\Functions\GetDocument.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalPayments.sql" />
+    <Build Include="CoreFacade\Views\Payments.sql" />
+    <Build Include="CoreFacade\Functions\GetPaymentCount.sql" />
+    <Build Include="Security\AssureCustomer.sql" />
+    <Build Include="CoreModel\Tables\PolicyDocuments.sql" />
+    <Build Include="CoreModel\Tables\ClaimDocuments.sql" />
+    <Build Include="CoreFacade\Functions\GetPolicyDocuments.sql" />
+    <Build Include="CoreFacade\Functions\GetClaimDocuments.sql" />
+    <Build Include="CoreFacade\Stored Procedures\RemovePolicyDocument.sql" />
+    <Build Include="CoreFacade\Stored Procedures\RemoveClaimDocument.sql" />
+    <Build Include="CoreFacade\Stored Procedures\AddPolicyDocument.sql" />
+    <Build Include="CoreFacade\Stored Procedures\AddClaimDocument.sql" />
+    <Build Include="CoreModel\Tables\Requests.sql" />
+    <Build Include="CoreFacade\Functions\GetRequestCount.sql" />
+    <Build Include="CoreFacade\Views\Requests.sql" />
+    <Build Include="SecurityModel\Tables\PrincipalRequests.sql" />
+    <None Include="InsertBenefits.sql" />
+    <None Include="InsertProductBenefits.sql" />
+    <Build Include="StaticFacade\Views\Benefits.sql" />
+    <Build Include="StaticFacade\Stored Procedures\AddProductBenefit.sql" />
+    <Build Include="StaticFacade\Stored Procedures\RemoveProductBenefit.sql" />
+    <Build Include="StaticModel\Tables\Benefits.sql" />
+    <Build Include="StaticModel\Tables\ProductBenefits.sql" />
+    <Build Include="CoreFacade\Functions\GetCustomerPolicyBenefits.sql" />
+    <Build Include="CoreModel\Tables\CustomerPolicyBenefits.sql" />
+    <Build Include="StaticFacade\Functions\GetBenefitCount.sql" />
+    <Build Include="StaticFacade\Functions\GetProductBenefits.sql" />
+    <Build Include="CoreFacade\Stored Procedures\AddCustomerPolicyBenefit.sql" />
+    <Build Include="CoreFacade\Stored Procedures\RemoveCustomerPolicyBenefit.sql" />
+    <Build Include="CoreFacade\Functions\GetQuestionCount.sql" />
+    <Build Include="CoreFacade\Functions\GetProductCount.sql" />
+    <Build Include="CoreFacade\Functions\GetBenefitCount.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>
