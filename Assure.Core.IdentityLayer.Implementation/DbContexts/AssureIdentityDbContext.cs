@@ -31,7 +31,7 @@ namespace Assure.Core.IdentityLayer.Implementation.DbContexts
         public Task<int> AddDatabaseUser(IdentityUser<Guid> user)
         {
             var createUserCommand = $"CREATE USER [{user.Id}] WITHOUT LOGIN";
-            return Database.ExecuteSqlCommandAsync(createUserCommand);
+            return Database.ExecuteSqlRawAsync(createUserCommand);
         }
 #pragma warning restore EF1000
 
@@ -39,7 +39,7 @@ namespace Assure.Core.IdentityLayer.Implementation.DbContexts
         public Task DropDatabaseUser(IdentityUser<Guid> user)
         {
             var dropUserCommand = $"DROP USER [{user.Id}]";
-            return Database.ExecuteSqlCommandAsync(dropUserCommand);
+            return Database.ExecuteSqlRawAsync(dropUserCommand);
         }
 #pragma warning restore EF1000
     }

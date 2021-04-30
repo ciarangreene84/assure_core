@@ -20,7 +20,7 @@ namespace Assure.Core.IdentityLayer.Tests.Integration.DbContexts
             services.AddOptions();
             services.AddLogging();
 
-            services.AddAssureCoreIdentityLayer("Data Source=localhost;Initial Catalog=AssureCore;Integrated Security=True;");
+            services.AddAssureCoreIdentityLayer("Data Source=localhost;Initial Catalog=AssureCore;User Id=sa;Password=MySuperStrongPassword1!;");
 
             var serviceProvider = services.BuildServiceProvider();
             _dbContext = serviceProvider.GetService<AssureIdentityDbContext>();

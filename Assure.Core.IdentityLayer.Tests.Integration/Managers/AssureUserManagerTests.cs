@@ -20,7 +20,7 @@ namespace Assure.Core.IdentityLayer.Tests.Integration.Managers
             services.AddLogging();
 
             services.AddAuthentication();
-            services.AddAssureCoreIdentityLayer("Data Source=localhost;Initial Catalog=AssureCore;Integrated Security=True;").AddSignInManager();
+            services.AddAssureCoreIdentityLayer("Data Source=localhost;Initial Catalog=AssureCore;User Id=sa;Password=MySuperStrongPassword1!;").AddSignInManager();
 
             var serviceProvider = services.BuildServiceProvider();
             _userManager = serviceProvider.GetService<AssureUserManager>();

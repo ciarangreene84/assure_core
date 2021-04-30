@@ -16,16 +16,17 @@ namespace Assure.Core.DataAccessLayer.Tests.Unit
         {
             var services = new ServiceCollection();
             services.AddOptions();
-            services.AddLogging();
+            //configure NLog            
+            NLog.LogManager.LoadConfiguration("nlog.config");
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddNLog();
+            });
 
             services.Boot();
 
             var serviceProvider = services.BuildServiceProvider();
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
-
-            //configure NLog
-            loggerFactory.AddNLog();
-            NLog.LogManager.LoadConfiguration("nlog.config");
 
             _pageSortValidator = serviceProvider.GetService<IPageSortValidator>();
         }
